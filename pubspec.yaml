@@ -28,7 +28,7 @@ flutter:
     platforms:
       android:
         package: com.ars.video_thumbnail_pro
-        pluginClass: VideoThumbnailPlugin
+        pluginClass: VideoThumbnailProPlugin
       ios:
         pluginClass: VideoThumbnailProPlugin
       web:
