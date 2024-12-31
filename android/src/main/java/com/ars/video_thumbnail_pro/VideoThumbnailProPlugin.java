@@ -26,9 +26,9 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 
 /**
- * VideoThumbnailPlugin
+ * VideoThumbnailProPlugin
  */
-public class VideoThumbnailPlugin implements FlutterPlugin, MethodCallHandler {
+public class VideoThumbnailProPlugin implements FlutterPlugin, MethodCallHandler {
     private static final String TAG = "ThumbnailPlugin";
 
     private Context context;
