@@ -6,7 +6,7 @@ repository: https://github.com/arsarsars1/video_thumbnail_pro
 
 environment:
   sdk: ^3.5.6
-  flutter: ^3.22.0
+  flutter: ">=3.22.0"
 
 dependencies:
   flutter:
