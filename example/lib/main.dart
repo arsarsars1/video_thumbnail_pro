@@ -2,15 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_thumbnail_video/index.dart';
-import 'package:get_thumbnail_video/video_thumbnail.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:video_thumbnail_pro/index.dart';
+import 'package:video_thumbnail_pro/video_thumbnail_pro.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ Future<ThumbnailResult> genThumbnail(ThumbnailRequest r) async {
   Uint8List bytes;
   final completer = Completer<ThumbnailResult>();
   if (r.thumbnailPath != null) {
-    final thumbnailFile = await VideoThumbnail.thumbnailFile(
+    final thumbnailFile = await VideoThumbnailPro.thumbnailFile(
       video: r.video,
       headers: r.attachHeaders
           ? const {
@@ -80,7 +80,7 @@ Future<ThumbnailResult> genThumbnail(ThumbnailRequest r) async {
 
     bytes = await thumbnailFile.readAsBytes();
   } else {
-    bytes = await VideoThumbnail.thumbnailData(
+    bytes = await VideoThumbnailPro.thumbnailData(
       video: r.video,
       headers: r.attachHeaders
           ? const {
@@ -120,9 +120,9 @@ Future<ThumbnailResult> genThumbnail(ThumbnailRequest r) async {
 
 class GenThumbnailImage extends StatefulWidget {
   const GenThumbnailImage({
-    Key? key,
+    super.key,
     required this.thumbnailRequest,
-  }) : super(key: key);
+  });
   final ThumbnailRequest thumbnailRequest;
 
   @override
@@ -177,7 +177,7 @@ class _GenThumbnailImageState extends State<GenThumbnailImage> {
 }
 
 class DemoHome extends StatefulWidget {
-  const DemoHome({Key? key}) : super(key: key);
+  const DemoHome({super.key});
 
   @override
   State<DemoHome> createState() => _DemoHomeState();
@@ -341,8 +341,8 @@ class _DemoHomeState extends State<DemoHome> {
       appBar: AppBar(
         title: const Text('Thumbnail Plugin example'),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
+      body: ListView(
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(2, 10, 2, 8),
@@ -362,15 +362,15 @@ class _DemoHomeState extends State<DemoHome> {
             ),
           ),
           for (var i in settings) i,
-          Expanded(
-            child: Container(
-              color: Colors.grey[300],
-              child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  if (_futureImage != null) _futureImage! else const SizedBox(),
-                ],
-              ),
+          Container(
+            color: Colors.grey[300],
+            padding: const EdgeInsets.only(bottom: 80),
+            child: ListView(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              children: <Widget>[
+                if (_futureImage != null) _futureImage! else const SizedBox(),
+              ],
             ),
           ),
         ],
@@ -391,7 +391,7 @@ class _DemoHomeState extends State<DemoHome> {
             child: const Icon(Icons.videocam),
           ),
           const SizedBox(
-            width: 5,
+            width: 15,
           ),
           FloatingActionButton(
             onPressed: () async {
@@ -405,7 +405,7 @@ class _DemoHomeState extends State<DemoHome> {
             child: const Icon(Icons.local_movies),
           ),
           const SizedBox(
-            width: 20,
+            width: 15,
           ),
           FloatingActionButton(
             tooltip: 'Generate a data of thumbnail',
@@ -428,7 +428,7 @@ class _DemoHomeState extends State<DemoHome> {
             child: const Text('Data'),
           ),
           const SizedBox(
-            width: 5,
+            width: 15,
           ),
           FloatingActionButton(
             tooltip: 'Generate a file of thumbnail',

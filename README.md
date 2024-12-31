@@ -1,14 +1,13 @@
-# get_video_thumbnail
+# video_thumbnail_pro
 
-This project is a modified fork of [video_thumbnail](https://github.com/justsoft/video_thumbnail),
-originally created by
-John Zhong. Modifications and improvements have been made to adapt the project to new needs.
+This project is a modified fork of [video_thumbnail_pro](https://github.com/arsarsars1/video_thumbnail_pro),
+originally created by John Zhong and updated by Abdul Rehman. Modifications and improvements have been made to adapt the project to new needs.
 
 This plugin generates thumbnail from video file or URL. It returns image in memory or writes into a
 file. It offers rich
 options to control the image format, resolution and quality. Supports iOS / Android / web.
 
-[![pub ver](https://img.shields.io/badge/pub-v0.7.3-blue)](https://pub.dev/packages/get_thumbnail_video)
+[![pub ver](https://img.shields.io/badge/pub-v0.7.3-blue)](https://pub.dev/packages/video_thumbnail_pro)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
 
 ![video-file](./public/video_file.png?raw=true)
@@ -30,24 +29,24 @@ Warning:
 ## Usage
 
 **Installing**
-add [get_thumbnail_video](https://pub.dev/packages/get_thumbnail_video) as a dependency in your pubspec.yaml file.
+add [video_thumbnail_pro](https://pub.dev/packages/video_thumbnail_pro) as a dependency in your pubspec.yaml file.
 
 ```yaml
 dependencies:
-  get_thumbnail_video: ^0.7.3
+  video_thumbnail_pro: ^0.7.3
 ```
 
 **import**
 
 ```dart
-import 'package:get_thumbnail_video/video_thumbnail.dart';
+import 'package:video_thumbnail_pro/video_thumbnail_pro.dart';
 
 ```
 
 **Generate a thumbnail in memory from video file**
 
 ```dart
-final uint8list = await VideoThumbnail.thumbnailData(
+final uint8list = await VideoThumbnailPro.thumbnailData(
   video: videofile.path,
   imageFormat: ImageFormat.JPEG,
   maxWidth: 128, // specify the width of the thumbnail, let the height auto-scaled to keep the source aspect ratio
@@ -58,7 +57,7 @@ final uint8list = await VideoThumbnail.thumbnailData(
 **Generate a thumbnail file from video URL**
 
 ```dart
-XFile thumbnailFile = await VideoThumbnail.thumbnailFile(
+XFile thumbnailFile = await VideoThumbnailPro.thumbnailFile(
   video: "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4",
   thumbnailPath: (await getTemporaryDirectory()).path,
   imageFormat: ImageFormat.WEBP,
@@ -79,7 +78,7 @@ File tempVideo = File("${tempDir.path}/assets/my_video.mp4")
   ..createSync(recursive: true)
   ..writeAsBytesSync(byteData.buffer.asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
 
-final fileName = await VideoThumbnail.thumbnailFile(
+final fileName = await VideoThumbnailPro.thumbnailFile(
   video: tempVideo.path,
   thumbnailPath: (await getTemporaryDirectory()).path,
   imageFormat: ImageFormat.PNG,  
@@ -89,21 +88,15 @@ final fileName = await VideoThumbnail.thumbnailFile(
 
 ## Limitations on the Web platform
 
-Flutter Thumbnail on the Web platform has some limitations that might surprise developers more
-familiar with
-mobile/desktop targets.
+Flutter Thumbnail on the Web platform has some limitations that might surprise developers more familiar with mobile/desktop targets.
 
 In no particular order:
 
 ### CORS headers
 
 This plugin requires the server hosting the video to include appropriate CORS headers in the
-response. Specifically, the
-server must include the `Access-Control-Allow-Origin` and `Access-Control-Allow-Methods` headers in
-the response to the
-request.
-For more information, please refer to
-the [Mozilla Developer Network documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+response. Specifically, the server must include the `Access-Control-Allow-Origin` and `Access-Control-Allow-Methods` headers in the response to the request.
+For more information, please refer to the [Mozilla Developer Network documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 ### HTTP range headers
 
@@ -116,6 +109,4 @@ the [Mozilla Developer Network documentation](https://developer.mozilla.org/en-U
 
 ## Notes
 
-Fork or pull requests are always welcome. Currently it seems have a little performance issue while
-generating WebP
-thumbnail by using libwebp under iOS.
+Fork or pull requests are always welcome. Currently it seems have a little performance issue while generating WebP thumbnail by using libwebp under iOS.

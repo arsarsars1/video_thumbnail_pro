@@ -1,11 +1,11 @@
 {
-  "name": "get_thumbnail_video_example",
-  "short_name": "get_thumbnail_video_example",
+  "name": "video_thumbnail_pro_example",
+  "short_name": "video_thumbnail_pro_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-  "description": "Demonstrates how to use the get_thumbnail_video plugin.",
+  "description": "Demonstrates how to use the video_thumbnail_pro plugin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

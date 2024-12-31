@@ -5,8 +5,8 @@ import 'dart:math' as math;
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:get_thumbnail_video/src/image_format.dart';
-import 'package:get_thumbnail_video/src/video_thumbnail_platform.dart';
+import 'package:video_thumbnail_pro/src/image_format.dart';
+import 'package:video_thumbnail_pro/src/video_thumbnail_platform.dart';
 
 // An error code value to error name Map.
 // See: https://developer.mozilla.org/en-US/docs/Web/API/MediaError/code
@@ -31,13 +31,13 @@ const Map<int, String> _kErrorValueToErrorDescription = <int, String>{
 const String _kDefaultErrorMessage =
     'No further diagnostic information can be determined or provided.';
 
-/// A web implementation of the VideoThumbnailPlatform of the VideoThumbnail plugin.
-class VideoThumbnailWeb extends VideoThumbnailPlatform {
-  /// Constructs a VideoThumbnailWeb
-  VideoThumbnailWeb();
+/// A web implementation of the VideoThumbnailProPlatform of the VideoThumbnailPro plugin.
+class VideoThumbnailProWeb extends VideoThumbnailProPlatform {
+  /// Constructs a VideoThumbnailProWeb
+  VideoThumbnailProWeb();
 
   static void registerWith(Registrar registrar) {
-    VideoThumbnailPlatform.instance = VideoThumbnailWeb();
+    VideoThumbnailProPlatform.instance = VideoThumbnailProWeb();
   }
 
   @override

@@ -1,4 +1,4 @@
-group = "com.rocksti.get_thumbnail_video"
+group = "com.ars.video_thumbnail_pro"
 version = "1.0"
 
 buildscript {
@@ -23,7 +23,7 @@ apply plugin: "com.android.library"
 
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace = "com.rocksti.get_thumbnail_video"
+        namespace = "com.ars.video_thumbnail_pro"
     }
 
     compileSdk = 34

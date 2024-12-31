@@ -1,27 +1,27 @@
 import 'dart:typed_data';
 
 import 'package:cross_file/cross_file.dart';
-import 'package:get_thumbnail_video/src/image_format.dart';
-import 'package:get_thumbnail_video/src/video_thumbnail_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:video_thumbnail_pro/src/image_format.dart';
+import 'package:video_thumbnail_pro/src/video_thumbnail_method_channel.dart';
 
-abstract class VideoThumbnailPlatform extends PlatformInterface {
-  /// Constructs a VideoThumbnailPlatform.
-  VideoThumbnailPlatform() : super(token: _token);
+abstract class VideoThumbnailProPlatform extends PlatformInterface {
+  /// Constructs a VideoThumbnailProPlatform.
+  VideoThumbnailProPlatform() : super(token: _token);
 
   static final Object _token = Object();
 
-  static VideoThumbnailPlatform _instance = MethodChannelVideoThumbnail();
+  static VideoThumbnailProPlatform _instance = MethodChannelVideoThumbnail();
 
-  /// The default instance of [VideoThumbnailPlatform] to use.
+  /// The default instance of [VideoThumbnailProPlatform] to use.
   ///
   /// Defaults to [MethodChannelVideoThumbnail].
-  static VideoThumbnailPlatform get instance => _instance;
+  static VideoThumbnailProPlatform get instance => _instance;
 
   /// Platform-specific implementations should set this with their own
-  /// platform-specific class that extends [VideoThumbnailPlatform] when
+  /// platform-specific class that extends [VideoThumbnailProPlatform] when
   /// they register themselves.
-  static set instance(VideoThumbnailPlatform instance) {
+  static set instance(VideoThumbnailProPlatform instance) {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }

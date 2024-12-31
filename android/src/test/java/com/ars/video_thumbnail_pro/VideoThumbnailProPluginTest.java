@@ -1,4 +1,4 @@
-package com.rocksti.get_thumbnail_video;
+package com.ars.video_thumbnail_pro;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -15,10 +15,10 @@ import org.junit.Test;
  * you can run them directly from IDEs that support JUnit such as Android Studio.
  */
 
-public class GetThumbnailVideoPluginTest {
+public class VideoThumbnailProPluginTest {
   @Test
   public void onMethodCall_getPlatformVersion_returnsExpectedValue() {
-    GetThumbnailVideoPlugin plugin = new GetThumbnailVideoPlugin();
+    VideoThumbnailProPlugin plugin = new VideoThumbnailProPlugin();
 
     final MethodCall call = new MethodCall("getPlatformVersion", null);
     MethodChannel.Result mockResult = mock(MethodChannel.Result.class);

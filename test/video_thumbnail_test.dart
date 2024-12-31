@@ -1,14 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get_thumbnail_video/src/image_format.dart';
-import 'package:get_thumbnail_video/src/video_thumbnail_method_channel.dart';
-import 'package:get_thumbnail_video/video_thumbnail.dart';
+import 'package:video_thumbnail_pro/src/image_format.dart';
+import 'package:video_thumbnail_pro/video_thumbnail_pro.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelVideoThumbnail platform = MethodChannelVideoThumbnail();
-  const MethodChannel channel = MethodChannel('video_thumbnail');
+  const MethodChannel channel = MethodChannel('video_thumbnail_pro');
 
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -26,7 +24,7 @@ void main() {
   });
 
   test('thumbnailData', () async {
-    final XFile result = await VideoThumbnail.thumbnailFile(
+    final XFile result = await VideoThumbnailPro.thumbnailFile(
       video: 'video',
       thumbnailPath: 'path',
       imageFormat: ImageFormat.JPEG,

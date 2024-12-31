@@ -1,5 +1,5 @@
 ## 0.7.3
-* Relaxed the environment constraints for the plugin to support flutter v3.22.0
+* Relaxed the environment constraints for the plugin to support flutter v3.27.1
 
 ## 0.7.2
 
@@ -63,7 +63,7 @@
 * Thanks for julek-kal, Nailer, nilsreichardt
 * fix setDataSource for Android 11
 * Fetch closest frame instead of closest keyframe
-* Fix typo specify in video_thumbnail.dart
+* Fix typo specify in video_thumbnail_pro.dart
 * Change version and bump to 0.4.6
 
 ## 0.4.3

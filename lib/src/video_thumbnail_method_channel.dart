@@ -1,14 +1,14 @@
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:get_thumbnail_video/src/image_format.dart';
-import 'package:get_thumbnail_video/src/video_thumbnail_platform.dart';
+import 'package:video_thumbnail_pro/src/image_format.dart';
+import 'package:video_thumbnail_pro/src/video_thumbnail_platform.dart';
 
-/// An implementation of [VideoThumbnailPlatform] that uses method channels.
-class MethodChannelVideoThumbnail extends VideoThumbnailPlatform {
+/// An implementation of [VideoThumbnailProPlatform] that uses method channels.
+class MethodChannelVideoThumbnail extends VideoThumbnailProPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('video_thumbnail');
+  final methodChannel = const MethodChannel('video_thumbnail_pro');
 
   @override
   Future<XFile> thumbnailFile({

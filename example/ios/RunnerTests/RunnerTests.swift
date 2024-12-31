@@ -3,7 +3,7 @@ import UIKit
 import XCTest
 
 
-@testable import get_thumbnail_video
+@testable import video_thumbnail_pro
 
 // This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
 //

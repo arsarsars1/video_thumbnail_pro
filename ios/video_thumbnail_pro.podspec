@@ -1,9 +1,9 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint get_thumbnail_video.podspec` to validate before publishing.
+# Run `pod lib lint video_thumbnail_pro.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'get_thumbnail_video'
+  s.name             = 'video_thumbnail_pro'
   s.version          = '0.0.1'
   s.summary          = 'A flutter plugin for creating a thumbnail from a local video file or from a video URL.'
   s.description      = <<-DESC
@@ -31,5 +31,5 @@ A flutter plugin for creating a thumbnail from a local video file or from a vide
   # required reason APIs, update the PrivacyInfo.xcprivacy file to describe your
   # plugin's privacy impact, and then uncomment this line. For more information,
   # see https://developer.apple.com/documentation/bundleresources/privacy_manifest_files
-  # s.resource_bundles = {'get_thumbnail_video_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+  # s.resource_bundles = {'video_thumbnail_pro_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
 end

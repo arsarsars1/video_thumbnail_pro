@@ -1,4 +1,4 @@
-#import "VideoThumbnailPlugin.h"
+#import "VideoThumbnailProPlugin.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
@@ -14,12 +14,12 @@
 #import <libwebp/mux.h>
 #endif
 
-@implementation VideoThumbnailPlugin
+@implementation VideoThumbnailProPlugin
 + (void)registerWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
     FlutterMethodChannel *channel = [FlutterMethodChannel
-            methodChannelWithName:@"video_thumbnail"
+            methodChannelWithName:@"video_thumbnail_pro"
                   binaryMessenger:[registrar messenger]];
-    VideoThumbnailPlugin *instance = [[VideoThumbnailPlugin alloc] init];
+    VideoThumbnailProPlugin *instance = [[VideoThumbnailProPlugin alloc] init];
     [registrar addMethodCallDelegate:instance channel:channel];
 }
 
@@ -48,7 +48,7 @@
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
             //Background Thread
-            result([VideoThumbnailPlugin generateThumbnail:url headers:headers format:format maxHeight:maxh maxWidth:maxw timeMs:timeMs quality:quality]);
+            result([VideoThumbnailProPlugin generateThumbnail:url headers:headers format:format maxHeight:maxh maxWidth:maxw timeMs:timeMs quality:quality]);
         });
 
     } else if ([@"file" isEqualToString:call.method]) {
@@ -60,7 +60,7 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
             //Background Thread
 
-            NSData *data = [VideoThumbnailPlugin generateThumbnail:url headers:headers format:format maxHeight:maxh maxWidth:maxw timeMs:timeMs quality:quality];
+            NSData *data = [VideoThumbnailProPlugin generateThumbnail:url headers:headers format:format maxHeight:maxh maxWidth:maxw timeMs:timeMs quality:quality];
             NSString *ext = ((format == 0) ? @"jpg" : (format == 1) ? @"png" : @"webp");
             NSURL *thumbnail = [[url URLByDeletingPathExtension] URLByAppendingPathExtension:ext];
 

@@ -1,4 +1,4 @@
-package com.rocksti.get_thumbnail_video_example;
+package com.ars.video_thumbnail_pro_example;
 
 import io.flutter.embedding.android.FlutterActivity;
 

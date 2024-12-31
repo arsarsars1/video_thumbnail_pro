@@ -1,4 +1,4 @@
-package com.rocksti.get_thumbnail_video;
+package com.ars.video_thumbnail_pro;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -39,7 +39,7 @@ public class VideoThumbnailPlugin implements FlutterPlugin, MethodCallHandler {
     public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
         context = binding.getApplicationContext();
         executor = Executors.newCachedThreadPool();
-        channel = new MethodChannel(binding.getBinaryMessenger(), "video_thumbnail");
+        channel = new MethodChannel(binding.getBinaryMessenger(), "video_thumbnail_pro");
         channel.setMethodCallHandler(this);
     }
 
