@@ -28,3 +28,7 @@ migrate_working_dir/
 **/doc/api/
 .dart_tool/
 build/
+
+# Parent workspace metadata
+.cursor/
+.agents/

@@ -1,3 +1,10 @@
+## 0.7.5
+* Modernized for latest Flutter 3.47.2+ and Dart 3.13.2 toolchains.
+* Updated `flutter_lints` constraint to `">=5.0.0 <7.0.0"`.
+* Resolved dartdoc reference warnings in README.md and updated documentation for `Future<XFile>`.
+* Migrated example Android project to Flutter built-in Kotlin configuration.
+* Fixed example widget test suite.
+
 ## 0.7.4
 * Updated environment constraints to support Flutter >= 3.27.0 and Dart >= 3.5.0 < 4.0.0.
 * Updated dependencies (`cross_file`, `web`, `flutter_lints`).

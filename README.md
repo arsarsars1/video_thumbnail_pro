@@ -7,7 +7,7 @@ This plugin generates thumbnail from video file or URL. It returns image in memo
 file. It offers rich
 options to control the image format, resolution and quality. Supports iOS / Android / web.
 
-[![pub ver](https://img.shields.io/badge/pub-v0.7.4-blue)](https://pub.dev/packages/video_thumbnail_pro)
+[![pub ver](https://img.shields.io/badge/pub-v0.7.5-blue)](https://pub.dev/packages/video_thumbnail_pro)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
 
 ![video-file](./public/video_file.png?raw=true)
@@ -15,10 +15,10 @@ options to control the image format, resolution and quality. Supports iOS / Andr
 
 ## Methods
 
-| function      | parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | description                                        | return                |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-----------------------|
-| thumbnailData | String `[video]`, optional Map<String, dynamic> `[headers]`, ImageFormat `[imageFormat]`(JPEG/PNG/WEBP), int `[maxHeight]`(0: for the original resolution of the video, or scaled by the source aspect ratio), [maxWidth]`(0: for the original resolution of the video, or scaled by the source aspect ratio), int `[timeMs]` generates the thumbnail from the frame around the specified millisecond, int `[quality]`(0-100)                                                                                                                                                              | generates thumbnail from `[video]`                 | `[Future<Uint8List>]` |
-| thumbnailFile | String `[video]`, optional Map<String, dynamic> `[headers]`, String `[thumbnailPath]`(folder or full path where to store the thumbnail file, null to save to same folder as the video file) this ignored on the web, ImageFormat `[imageFormat]`(JPEG/PNG/WEBP), int `[maxHeight]`(0: for the original resolution of the video, or scaled by the source aspect ratio), int `[maxWidth]`(0: for the original resolution of the video, or scaled by the source aspect ratio), int `[timeMs]` generates the thumbnail from the frame around the specified millisecond, int `[quality]`(0-100) | creates a file of the thumbnail from the `[video]` | `[Future<String>]`    |
+| function      | parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | description                                  | return              |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|---------------------|
+| thumbnailData | String `video`, optional Map<String, dynamic> `headers`, ImageFormat `imageFormat` (JPEG/PNG/WEBP), int `maxHeight` (0: for original resolution of video, or scaled by source aspect ratio), int `maxWidth` (0: for original resolution of video, or scaled by source aspect ratio), int `timeMs` (generates thumbnail from the frame around the specified millisecond), int `quality` (0-100)                                                                                                                           | generates thumbnail from `video`             | `Future<Uint8List>` |
+| thumbnailFile | String `video`, optional Map<String, dynamic> `headers`, String `thumbnailPath` (folder or full path where to store thumbnail file, null to save to same folder as video file; ignored on web), ImageFormat `imageFormat` (JPEG/PNG/WEBP), int `maxHeight` (0: for original resolution of video, or scaled by source aspect ratio), int `maxWidth` (0: for original resolution of video, or scaled by source aspect ratio), int `timeMs` (generates thumbnail from the frame around the specified millisecond), int `quality` (0-100) | creates a file of the thumbnail from `video` | `Future<XFile>`     |
 
 Warning:
 > Giving both the `maxHeight` and `maxWidth` has different result on Android platform, it actually
@@ -33,7 +33,7 @@ add [video_thumbnail_pro](https://pub.dev/packages/video_thumbnail_pro) as a dep
 
 ```yaml
 dependencies:
-  video_thumbnail_pro: ^0.7.4
+  video_thumbnail_pro: ^0.7.5
 ```
 
 **import**
