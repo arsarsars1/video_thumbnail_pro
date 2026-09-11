@@ -1,3 +1,10 @@
+## 0.7.4
+* Updated environment constraints to support Flutter >= 3.27.0 and Dart >= 3.5.0 < 4.0.0.
+* Updated dependencies (`cross_file`, `web`, `flutter_lints`).
+* Updated Android toolchain compatibility: Java 17 and `compileSdk = 35`.
+* Included Apple Privacy Manifest (`PrivacyInfo.xcprivacy`) bundle in iOS podspec.
+* Raised iOS deployment target to 13.0.
+
 ## 0.7.3
 * Relaxed the environment constraints for the plugin to support flutter v3.27.1
 

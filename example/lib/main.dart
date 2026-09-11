@@ -287,52 +287,46 @@ class _DemoHomeState extends State<DemoHome> {
             isDense: true,
             labelText: 'Thumbnail Format',
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Radio<ImageFormat>(
-                    groupValue: _format,
-                    value: ImageFormat.JPEG,
-                    onChanged: (v) => setState(() {
-                      _format = v!;
-                      _editNode.unfocus();
-                    }),
-                  ),
-                  const Text('JPEG'),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Radio<ImageFormat>(
-                    groupValue: _format,
-                    value: ImageFormat.PNG,
-                    onChanged: (v) => setState(() {
-                      _format = v!;
-                      _editNode.unfocus();
-                    }),
-                  ),
-                  const Text('PNG'),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Radio<ImageFormat>(
-                    groupValue: _format,
-                    value: ImageFormat.WEBP,
-                    onChanged: (v) => setState(() {
-                      _format = v!;
-                      _editNode.unfocus();
-                    }),
-                  ),
-                  const Text('WebP'),
-                ],
-              ),
-            ],
+          child: RadioGroup<ImageFormat>(
+            groupValue: _format,
+            onChanged: (v) => setState(() {
+              if (v != null) {
+                _format = v;
+                _editNode.unfocus();
+              }
+            }),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Radio<ImageFormat>(
+                      value: ImageFormat.JPEG,
+                    ),
+                    Text('JPEG'),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Radio<ImageFormat>(
+                      value: ImageFormat.PNG,
+                    ),
+                    Text('PNG'),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const <Widget>[
+                    Radio<ImageFormat>(
+                      value: ImageFormat.WEBP,
+                    ),
+                    Text('WebP'),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       )
@@ -383,9 +377,11 @@ class _DemoHomeState extends State<DemoHome> {
             onPressed: () async {
               final video =
                   await ImagePicker().pickVideo(source: ImageSource.camera);
-              setState(() {
-                _video.text = video?.path ?? '';
-              });
+              if (video != null) {
+                setState(() {
+                  _video.text = video.path;
+                });
+              }
             },
             tooltip: 'Capture a video',
             child: const Icon(Icons.videocam),
@@ -397,9 +393,11 @@ class _DemoHomeState extends State<DemoHome> {
             onPressed: () async {
               final video =
                   await ImagePicker().pickVideo(source: ImageSource.gallery);
-              setState(() {
-                _video.text = video?.path ?? '';
-              });
+              if (video != null) {
+                setState(() {
+                  _video.text = video.path;
+                });
+              }
             },
             tooltip: 'Pick a video',
             child: const Icon(Icons.local_movies),
@@ -410,10 +408,17 @@ class _DemoHomeState extends State<DemoHome> {
           FloatingActionButton(
             tooltip: 'Generate a data of thumbnail',
             onPressed: () async {
+              final uri = _video.text.trim();
+              if (uri.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Please provide a valid video URI')),
+                );
+                return;
+              }
               setState(() {
                 _futureImage = GenThumbnailImage(
                   thumbnailRequest: ThumbnailRequest(
-                    video: _video.text,
+                    video: uri,
                     thumbnailPath: null,
                     imageFormat: _format,
                     maxHeight: _sizeH,
@@ -433,10 +438,17 @@ class _DemoHomeState extends State<DemoHome> {
           FloatingActionButton(
             tooltip: 'Generate a file of thumbnail',
             onPressed: () async {
+              final uri = _video.text.trim();
+              if (uri.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Please provide a valid video URI')),
+                );
+                return;
+              }
               setState(() {
                 _futureImage = GenThumbnailImage(
                   thumbnailRequest: ThumbnailRequest(
-                    video: _video.text,
+                    video: uri,
                     thumbnailPath: _tempDir,
                     imageFormat: _format,
                     maxHeight: _sizeH,
