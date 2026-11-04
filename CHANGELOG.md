@@ -1,3 +1,7 @@
+## 0.7.6
+* Raise package floors to Dart `^3.12.0` and Flutter `>=3.44.0`; `flutter_lints: ^6.0.0`.
+* Android plugin `compileSdk` 36; example app floors aligned.
+
 ## 0.7.5
 * Modernized for latest Flutter 3.47.2+ and Dart 3.13.2 toolchains.
 * Updated `flutter_lints` constraint to `">=5.0.0 <7.0.0"`.

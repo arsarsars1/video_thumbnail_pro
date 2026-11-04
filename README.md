@@ -7,7 +7,7 @@ This plugin generates thumbnail from video file or URL. It returns image in memo
 file. It offers rich
 options to control the image format, resolution and quality. Supports iOS / Android / web.
 
-[![pub ver](https://img.shields.io/badge/pub-v0.7.5-blue)](https://pub.dev/packages/video_thumbnail_pro)
+[![pub ver](https://img.shields.io/badge/pub-v0.7.6-blue)](https://pub.dev/packages/video_thumbnail_pro)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
 
 ![video-file](./public/video_file.png?raw=true)
@@ -33,7 +33,7 @@ add [video_thumbnail_pro](https://pub.dev/packages/video_thumbnail_pro) as a dep
 
 ```yaml
 dependencies:
-  video_thumbnail_pro: ^0.7.5
+  video_thumbnail_pro: ^0.7.6
 ```
 
 **import**
